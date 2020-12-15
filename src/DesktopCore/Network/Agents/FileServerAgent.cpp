@@ -53,7 +53,7 @@ namespace desktop { namespace core { namespace agent {
 		
 		m_folder = m_applicationService->getViewerFolder();
 
-		m_endpoint = m_iniFileService->get<std::string>(documents + "Desktop.ini", "FileServer", "Endpoint", "http://127.0.0.1:9292/");
+		m_endpoint = m_iniFileService->get<std::string>(documents + "Desktop.ini", "FileServer", "Endpoint", "http://127.0.0.1:9393/");
 
 		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 		std::wstring endpoint = converter.from_bytes(m_endpoint);

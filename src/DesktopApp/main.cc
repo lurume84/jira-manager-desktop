@@ -140,7 +140,7 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
 	  {
 		  desktop::core::service::IniFileService iniFileService;
 
-		  window_config.url = iniFileService.get<std::string>(applicationService.getMyDocuments() + "JiraManager.ini", "FileServer", "Endpoint", "http://127.0.0.1:9292/");
+		  window_config.url = iniFileService.get<std::string>(applicationService.getMyDocuments() + "JiraManager.ini", "FileServer", "Endpoint", "http://127.0.0.1:9393/");
 	  }
 	  else
 	  {
