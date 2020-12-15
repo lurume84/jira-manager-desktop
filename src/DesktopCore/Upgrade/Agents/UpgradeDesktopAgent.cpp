@@ -32,10 +32,10 @@ namespace desktop { namespace core { namespace agent {
 
 		auto documents = m_applicationService->getMyDocuments();
 		
-		m_host = m_iniFileService->get<std::string>(documents + "Jirafy.ini", "UpgradeDesktop", "Host", "api.github.com");
-		m_repository = m_iniFileService->get<std::string>(documents + "Jirafy.ini", "UpgradeDesktop", "Repository", "/repos/lurume84/jirafy-desktop/releases/latest");
-		m_inFolder = m_iniFileService->get<std::string>(documents + "Jirafy.ini", "UpgradeDesktop", "Input", documents + "Download\\Versions\\Desktop\\");
-		m_outFolder = m_iniFileService->get<std::string>(documents + "Jirafy.ini", "UpgradeDesktop", "Output", m_applicationService->getViewerFolder());
+		m_host = m_iniFileService->get<std::string>(documents + "Desktop.ini", "UpgradeDesktop", "Host", "api.github.com");
+		m_repository = m_iniFileService->get<std::string>(documents + "Desktop.ini", "UpgradeDesktop", "Repository", "/repos/lurume84/jira-manager-desktop/releases/latest");
+		m_inFolder = m_iniFileService->get<std::string>(documents + "Desktop.ini", "UpgradeDesktop", "Input", documents + "Download\\Versions\\Desktop\\");
+		m_outFolder = m_iniFileService->get<std::string>(documents + "Desktop.ini", "UpgradeDesktop", "Output", m_applicationService->getViewerFolder());
 
 		boost::filesystem::create_directories(m_inFolder);
 	}

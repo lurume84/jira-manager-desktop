@@ -98,7 +98,7 @@ foreach(FILE ${SRC_FILES})
     source_group("${GROUP}" FILES "${FILE}")
 endforeach()
 
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "Jirafy" PDB_NAME "Jirafy"
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "JiraManager" PDB_NAME "JiraManager"
     PDB_OUTPUT_DIRECTORY "${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY}"))
 
 ######################### Flags ############################

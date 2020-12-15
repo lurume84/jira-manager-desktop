@@ -29,7 +29,7 @@ build_script:
   - cmd: 7z a bin\Release\DesktopApp\PDBs.7z bin\Release\DesktopApp\*.pdb
   
 artifacts:
-  - path: bin\Release\DesktopInstaller\JirafySetup.exe
-    name: Jirafy
+  - path: bin\Release\DesktopInstaller\JiraManagerSetup.exe
+    name: JiraManagerSetup
   - path: bin\Release\DesktopApp\PDBs.7z
     name: PDBs

@@ -101,7 +101,7 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
 
   CefSettings settings;
   settings.remote_debugging_port = 8088;
-  CefString(&settings.user_agent).FromString("JirafyBrowser");
+  CefString(&settings.user_agent).FromString("JiraManagerBrowser");
 
   settings.external_message_pump = true;
 
@@ -140,7 +140,7 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
 	  {
 		  desktop::core::service::IniFileService iniFileService;
 
-		  window_config.url = iniFileService.get<std::string>(applicationService.getMyDocuments() + "Jirafy.ini", "FileServer", "Endpoint", "http://127.0.0.1:9292/");
+		  window_config.url = iniFileService.get<std::string>(applicationService.getMyDocuments() + "JiraManager.ini", "FileServer", "Endpoint", "http://127.0.0.1:9292/");
 	  }
 	  else
 	  {
@@ -170,12 +170,12 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
 	  auto evt = static_cast<const desktop::core::events::UpgradeDesktopCompletedEvent&>(rawEvt);
 
 	  std::stringstream ss;
-	  ss << "Jirafy " << evt.m_version << " is available, do you want to install it?";
+	  ss << "Jira Manager " << evt.m_version << " is available, do you want to install it?";
 
 	  std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 	  std::wstring message = converter.from_bytes(ss.str());
 
-	  const int result = MessageBox(NULL, message.c_str(), L"Jirafy upgrade", MB_YESNO);
+	  const int result = MessageBox(NULL, message.c_str(), L"Jira Manager upgrade", MB_YESNO);
 
 	  switch (result)
 	  {

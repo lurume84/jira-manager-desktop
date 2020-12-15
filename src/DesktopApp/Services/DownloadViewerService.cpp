@@ -47,7 +47,7 @@ namespace desktop { namespace ui { namespace service {
 			}
 			else
 			{ 
-				auto fileServer = m_iniFileService->get<std::string>(m_applicationService->getMyDocuments() + "Jirafy.ini", "FileServer", "Endpoint", "http://127.0.0.1:9292/");
+				auto fileServer = m_iniFileService->get<std::string>(m_applicationService->getMyDocuments() + "Desktop.ini", "FileServer", "Endpoint", "http://127.0.0.1:9292/");
 				m_browser.GetMainFrame()->LoadURL(fileServer);
 			}
 		}, desktop::core::events::UPGRADE_VIEWER_COMPLETED_EVENT);

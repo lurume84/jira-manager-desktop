@@ -124,12 +124,12 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "CompanyName", "Luis Ruiz"
-            VALUE "FileDescription", "Jirafy"
+            VALUE "FileDescription", "Jira Manager"
             VALUE "FileVersion", "0.0.0.0"
-            VALUE "InternalName", "Jirafy"
-            VALUE "LegalCopyright", "Copyright (C) 2019 Jirafy"
-            VALUE "OriginalFilename", "Jirafy.exe"
-            VALUE "ProductName", "Jirafy"
+            VALUE "InternalName", "Jira Manager"
+            VALUE "LegalCopyright", "Copyright (C) 2019 Jira Manager"
+            VALUE "OriginalFilename", "JiraManager.exe"
+            VALUE "ProductName", "Jira Manager"
             VALUE "ProductVersion", "0.0.0.0"
         END
     END
@@ -175,8 +175,8 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_APP_TITLE           "Jirafy"
-    IDC_CEFCLIENT           "JIRAFY"
+    IDS_APP_TITLE           "Jira Manager"
+    IDC_CEFCLIENT           "JIRAMANAGER"
 END
 
 #endif    // English (United States) resources
