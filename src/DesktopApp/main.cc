@@ -28,6 +28,8 @@
 #include "DesktopCore\Network\Agents\FileServerAgent.h"
 #include "Agents\ToastifyHotKeyAgent.h"
 #include "Services\DownloadViewerService.h"
+#include "DesktopCore\System\Agents\LogAgent.h"
+#include "DesktopCore\System\Services\LogService.h"
 
 #include <locale>
 #include <codecvt>
@@ -151,7 +153,7 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
   desktop::core::DesktopCore core;
 
   desktop::core::utils::patterns::Subscriber subscriber;
-  subscriber.subscribe([&core](const desktop::core::utils::patterns::Event& rawEvt)
+  subscriber.subscribe([&core, &subscriber](const desktop::core::utils::patterns::Event& rawEvt)
   {
 	  const auto& evt = static_cast<const desktop::ui::events::BrowserCreatedEvent&>(rawEvt);
 
@@ -159,10 +161,14 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
 
 	  core.initialize();
 	  
+      core.addAgent(std::make_unique<desktop::core::agent::LogAgent>());
 	  core.addAgent(std::make_unique<desktop::ui::agent::ToastifyHotKeyAgent>(browser));
 	  core.addAgent(std::make_unique<desktop::core::agent::UpgradeViewerAgent>(std::make_unique<desktop::ui::service::DownloadViewerService>(browser)));
 	  core.addAgent(std::make_unique<desktop::core::agent::UpgradeDesktopAgent>(std::make_unique<desktop::core::service::DownloadFileService>()));
 	  core.addAgent(std::make_unique<desktop::core::agent::FileServerAgent>());
+
+	  subscriber.unsubscribe(rawEvt.m_name);
+
   }, desktop::ui::events::BROWSER_CREATED_EVENT);
 
   subscriber.subscribe([](const desktop::core::utils::patterns::Event& rawEvt)
